@@ -13,6 +13,7 @@ import {
 
 const Sidebar = () => {
   return (
+    <div className=''>
       <CDBSidebar textColor="#333" backgroundColor="#f0f0f0">
         <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
           <div className="container" style={{ display: 'flex', alignItems: 'center' }}>
@@ -22,9 +23,9 @@ const Sidebar = () => {
         </CDBSidebarHeader>
         <CDBSidebarContent>
           <CDBSidebarMenu>
-            <CDBSidebarMenuItem icon="th-large">Dashboard</CDBSidebarMenuItem>
+            <CDBSidebarMenuItem icon="th-large">Applicant list</CDBSidebarMenuItem>
 
-            <CDBSidebarMenuItem icon="sticky-note">Applicant list</CDBSidebarMenuItem>
+            <CDBSidebarMenuItem icon="sticky-note">Approved Applicant</CDBSidebarMenuItem>
             
             <CDBSidebarMenuItem icon="chart-line" iconType="solid">
               metrics
@@ -32,6 +33,8 @@ const Sidebar = () => {
           </CDBSidebarMenu>
         </CDBSidebarContent>
       </CDBSidebar>
+    </div>
+      
   )
 };
 

@@ -5,10 +5,11 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 
 import HeroSection from './pages/HeroSection';
+import ApprovedApplicant from './pages/ApprovedApplicant';
 
 function App() {
   return (
-    <CookiesProvider>
+    
     <Router>
       <Routes>
         <Route  path="/home" element={
@@ -19,11 +20,13 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<HeroSection />} />
+        <Route path="/approved" element={<ApprovedApplicant/>} />
+
 
     
       </Routes>
     </Router>
-    </CookiesProvider>
+    
   );
 }
 

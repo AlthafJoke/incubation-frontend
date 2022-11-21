@@ -106,47 +106,47 @@ function ApplyForm() {
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Name</Form.Label>
-          <Form.Control value={applicationData.name} onChange={handleChange} type="text" name='name' placeholder="Enter Name"/>
+          <Form.Control value={applicationData.name} onChange={handleChange} type="text" name='name' placeholder="Enter Name" required={true}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control  value={applicationData.email} onChange={handleChange} type="email" name='email' placeholder="Enter email" />
+          <Form.Control  value={applicationData.email} onChange={handleChange} type="email" name='email' placeholder="Enter email" required={true} />
         </Form.Group>
       </Row>
 
       <Form.Group className="mb-3" controlId="formGridAddress1">
         <Form.Label>Phone number</Form.Label>
-        <Form.Control value={applicationData.phone} onChange={handleChange} placeholder="+91" name='phone' />
+        <Form.Control value={applicationData.phone} onChange={handleChange} placeholder="+91" name='phone' required={true}/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formGridAddress2">
         <Form.Label>Address </Form.Label>
-        <Form.Control value={applicationData.address} onChange={handleChange} placeholder="Apartment, studio, or floor" name='address' />
+        <Form.Control value={applicationData.address} onChange={handleChange} placeholder="Apartment, studio, or floor" name='address' required={true}/>
       </Form.Group>
 
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCity">
           <Form.Label >City</Form.Label>
-          <Form.Control value={applicationData.city} onChange={handleChange} name='city'/>
+          <Form.Control value={applicationData.city} onChange={handleChange} name='city' required={true}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridState">
           <Form.Label name='state'>State</Form.Label>
-          <Form.Control value={applicationData.state} onChange={handleChange} name='state'/>
+          <Form.Control value={applicationData.state} onChange={handleChange} name='state' required={true}/>
           
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridZip">
           <Form.Label>Company name</Form.Label>
-          <Form.Control value={applicationData.companyname} onChange={handleChange} name='companyname'/>
+          <Form.Control value={applicationData.companyname} onChange={handleChange} name='companyname' required={true}/>
         </Form.Group>
         
       </Row>
       
       <Form.Group className="mb-3" controlId="formGridAddress2">
         <Form.Label>Tell us your problems</Form.Label>
-        <Form.Control value={applicationData.problem} onChange={handleChange} name='problem'/>
+        <Form.Control value={applicationData.problem} onChange={handleChange} name='problem' required={true}/>
       </Form.Group>
 
       
