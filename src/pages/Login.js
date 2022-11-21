@@ -15,7 +15,8 @@ const Login = () => {
       if(token['my-token']) {
         navigate('/home')
       }
-    })
+    }, [token])
+
 
     const loginBtn = () => {
       APIService.LoginUser({username, password})
@@ -23,6 +24,12 @@ const Login = () => {
       .catch(error => console.log(error))
 
     }
+    const RegisterBtn = () => {
+      APIService.RegisterUser({username, password})
+      .then(() =>  loginBtn())
+      .catch(error => console.log(error))
+    }
+
   return (
     <div>
         
@@ -31,7 +38,7 @@ const Login = () => {
         <div className='fixed w-full px-4 py-24 z-50 '>
           <div className='max-w-[450px] h-[600px] mx-auto bg-red-700 text-white' >
             <div className='max-w-[320px] mx-auto py-16'>
-                {/* {isLogin ? <h1 className='text-3xl font-bold '>Sign In</h1> : <h1 className='text-3xl font-bold '>Register</h1>} */}
+                {isLogin ? <h1 className='text-3xl font-bold '>Sign In</h1> : <h1 className='text-3xl font-bold '>Register Here</h1>}
               
               
               
@@ -43,7 +50,7 @@ const Login = () => {
                 className='p-3 my-2 form-control ' type="password" id="password"  placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
                 {/* <button className='bg-green-600 py-3 my-6 rounded btn-lg btn-block w-full' onClick={loginBtn} >Sign In</button> */}
                 {isLogin ? <button className='bg-green-600 py-3 my-6 rounded btn-lg btn-block w-full' onClick={loginBtn}>Sign In</button>:
-                 <button className='bg-primary py-3 my-6 rounded btn-lg btn-block w-full' >Register</button>}
+                 <button className='bg-primary py-3 my-6 rounded btn-lg btn-block w-full' onClick={RegisterBtn}>Register</button>}
                
                
                {isLogin ? <p>
