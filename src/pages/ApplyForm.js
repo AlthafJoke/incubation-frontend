@@ -26,7 +26,7 @@ function ApplyForm() {
     'state': '',
     'companyname': '',
     'problem': '',
-    'status': '',
+    'success': '',
 
 
   });
@@ -44,7 +44,8 @@ function ApplyForm() {
   //end
 
   // Form submit 
-  const submitForm = () => {
+  const submitForm = (e) => {
+    e.preventDefault()
     const applicationFormData = new FormData();
     applicationFormData.append('name', applicationData.name)
     applicationFormData.append('email', applicationData.email)
@@ -58,7 +59,7 @@ function ApplyForm() {
     try {
       axios.post(baseUrl, applicationFormData).then((response) => {
         console.log(response.data)
-        setApplicationData({
+        setApplicationData({ // this is made to make form empty
           'name': '',
           'email': '',
           'phone': '',
@@ -67,7 +68,7 @@ function ApplyForm() {
           'state': '',
           'companyname': '',
           'problem': '',
-          'status': true ,
+          'success': true ,
       
       
         })
@@ -101,62 +102,65 @@ function ApplyForm() {
  
   
   return (
-    <>{applicationData.status ? <RegSuccess/>:
-    <Form className=' p-5'>
+
+    <>
+    {applicationData.success ? <RegSuccess/>:
+    <Form onSubmit={(e)=>submitForm(e)} className=' p-5' >
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Name</Form.Label>
-          <Form.Control value={applicationData.name} onChange={handleChange} type="text" name='name' placeholder="Enter Name" required={true}/>
+          <Form.Control value={applicationData.name} onChange={handleChange} type="text" name='name' placeholder="Enter Name" required/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control  value={applicationData.email} onChange={handleChange} type="email" name='email' placeholder="Enter email" required={true} />
+          <Form.Control  value={applicationData.email} onChange={handleChange} type="email" name='email' placeholder="Enter email" required />
         </Form.Group>
       </Row>
 
       <Form.Group className="mb-3" controlId="formGridAddress1">
         <Form.Label>Phone number</Form.Label>
-        <Form.Control value={applicationData.phone} onChange={handleChange} placeholder="+91" name='phone' required={true}/>
+        <Form.Control value={applicationData.phone} onChange={handleChange} placeholder="+91" name='phone' required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formGridAddress2">
         <Form.Label>Address </Form.Label>
-        <Form.Control value={applicationData.address} onChange={handleChange} placeholder="Apartment, studio, or floor" name='address' required={true}/>
+        <Form.Control value={applicationData.address} onChange={handleChange} placeholder="Apartment, studio, or floor" name='address' required/>
       </Form.Group>
 
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCity">
           <Form.Label >City</Form.Label>
-          <Form.Control value={applicationData.city} onChange={handleChange} name='city' required={true}/>
+          <Form.Control value={applicationData.city} onChange={handleChange} name='city' required/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridState">
           <Form.Label name='state'>State</Form.Label>
-          <Form.Control value={applicationData.state} onChange={handleChange} name='state' required={true}/>
+          <Form.Control value={applicationData.state} onChange={handleChange} name='state' required/>
           
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridZip">
           <Form.Label>Company name</Form.Label>
-          <Form.Control value={applicationData.companyname} onChange={handleChange} name='companyname' required={true}/>
+          <Form.Control value={applicationData.companyname} onChange={handleChange} name='companyname' required/>
         </Form.Group>
         
       </Row>
       
       <Form.Group className="mb-3" controlId="formGridAddress2">
         <Form.Label>Tell us your problems</Form.Label>
-        <Form.Control value={applicationData.problem} onChange={handleChange} name='problem' required={true}/>
+        <Form.Control value={applicationData.problem} onChange={handleChange} name='problem' required/>
       </Form.Group>
 
       
 
-      <Button onClick={submitForm} type="submit">
+      <Button  type="submit">
         
         Submit
       </Button>
     </Form>
-    }</>
+    }
+    </>
     
     
   );

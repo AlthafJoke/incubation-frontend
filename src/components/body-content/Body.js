@@ -6,6 +6,7 @@ import axios from "axios";
 
 const Body = () => {
   const [newApplication, setApplication] = useState([]);
+  const [refetch,setRefetch]=useState(false)
 
   // const [editApplication, setEditApplication]
   const handleApprove = (id) => {
@@ -19,6 +20,7 @@ const Body = () => {
       }).then(response => {
         if (response.status === 201) {
           console.log("success");
+          setRefetch(true)
         }
       })
 
@@ -39,7 +41,8 @@ const Body = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+    console.log(12121)
+  }, [refetch]);
   return (
     <div className="">
       <h3 className="text-center mt-3">New applications</h3>
@@ -56,9 +59,9 @@ const Body = () => {
           {newApplication.map((application, index) => {
             return (
               <tr key={index}>
-                <td>{application.id}</td>
+                <td>{index+1}</td>
 
-                <td>{application.name}</td>
+                <td>{application.companyname}</td>
 
                 <td>{application.status}</td>
                 <td>

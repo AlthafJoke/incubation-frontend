@@ -10,8 +10,10 @@ import {
   CDBBadge,
   CDBContainer,
 } from 'cdbreact';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
+  const navigate=useNavigate()
   return (
     <div className=''>
       <CDBSidebar textColor="#333" backgroundColor="#f0f0f0">
@@ -25,7 +27,7 @@ const Sidebar = () => {
           <CDBSidebarMenu>
             <CDBSidebarMenuItem icon="th-large">Applicant list</CDBSidebarMenuItem>
 
-            <CDBSidebarMenuItem icon="sticky-note">Approved Applicant</CDBSidebarMenuItem>
+            <CDBSidebarMenuItem icon="sticky-note" onClick={() => {navigate('/approved')}} >Approved Applicant</CDBSidebarMenuItem>
             
             <CDBSidebarMenuItem icon="chart-line" iconType="solid">
               metrics
