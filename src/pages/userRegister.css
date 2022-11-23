@@ -1,0 +1,26 @@
+#signup-app {
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.signup-form {
+  margin: 40px 0;
+}
+.box {
+  background: rgba(89, 94, 101, 0.926);
+  color: white;
+  border-radius: 7px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.615);
+  width: 400px;
+  min-height: 350px;
+  margin: 100px auto;
+  padding: 50px;
+  transition: all 0.2s ease-in;
+}
+
+@media screen and (max-width: 768px) {
+  .box {
+    padding: 20px;
+    width: 90%;
+  }
+}

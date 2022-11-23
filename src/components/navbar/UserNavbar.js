@@ -14,8 +14,8 @@ import AuthContext from '../../context/AuthContext';
 const navigation = [
 
 
-  { name: 'Home', href: '/admin', current: true },
-  // { name: 'Team', href: '#', current: false },
+  { name: 'Home', href: '/', current: true },
+  { name: 'Dashboard', href: '#', current: false },
   // { name: 'Projects', href: '#', current: false },
   // { name: 'Calendar', href: '#', current: false },
 ]
@@ -24,22 +24,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function UserNavbar() {
   const  [token, setToken, removeToken] = useCookies(['mytoken'])
   const navigate = useNavigate()
   const {logoutUser} = useContext(AuthContext)
 
-  // const logoutBtn = () => {
-  //   removeToken(['my-token'])
-  //   console.log('logout')
-    
-  // }
-
-  // useEffect(() => {
-  //   if(!token['my-token']) {
-  //     // navigate('/')
-  //   }
-  // }, [token])
+  
   
   return (
     <Disclosure as="nav" className="bg-gray-800">

@@ -25,7 +25,7 @@ const Sidebar = () => {
         </CDBSidebarHeader>
         <CDBSidebarContent>
           <CDBSidebarMenu>
-            <CDBSidebarMenuItem icon="th-large">Applicant list</CDBSidebarMenuItem>
+            <CDBSidebarMenuItem icon="th-large" onClick={() => {navigate('/admin')}} >Applicant list</CDBSidebarMenuItem>
 
             <CDBSidebarMenuItem icon="sticky-note" onClick={() => {navigate('/approved')}} >Approved Applicant</CDBSidebarMenuItem>
             

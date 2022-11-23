@@ -10,30 +10,39 @@ import UserPage from "./pages/UserPage";
 import LoginForm from "./pages/LoginForm";
 import { Header } from "rsuite";
 import NavigationBar from "./components/Header";
-import PrivateRoutes  from "./utils/PrivateRoute";
-
+import PrivateRoutes from "./utils/PrivateRoute";
+import { AuthProvider } from "./context/AuthContext";
+import UserRegister from "./pages/userRegister";
 
 function App() {
   return (
+    
     <Router>
-      <NavigationBar/>
+      <AuthProvider>
+      
+      {/* <NavigationBar /> */}
       <Routes>
+        
+        
+        {/* <Route path="/" element={<HeroSection />} /> */}
+        
+        <Route element={<PrivateRoutes />}>
+          <Route path="/" element={<HeroSection />} />
+          <Route index path="/admin" element={<Home />} />
+          <Route path="/approved" element={<ApprovedApplicant />} />
 
-        {/* 
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<HeroSection />} /> */}
-
-        <Route element={<PrivateRoutes/>}>
-          <Route path='/userhome' element={<UserPage/>}/>
-          <Route path="/home" element={<Home />} />
         </Route>
+          
         
+        <Route path="/login" element={<Login />} />
+        <Route path="/userRegister" element={<UserRegister/>} />
         
-        <Route path='/loginForm' element={<LoginForm/>} />
-        {/* <Route path="/approved" element={<ApprovedApplicant />} > */}
-         
-        
+        {/* <Route path="/loginForm" element={<LoginForm />} /> */}
       </Routes>
+      </AuthProvider>
+
+      
+      
     </Router>
   );
 }

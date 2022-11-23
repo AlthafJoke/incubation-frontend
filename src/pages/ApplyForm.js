@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2'
 import { Loader, Placeholder } from 'rsuite';
 
@@ -12,10 +12,13 @@ import APIService from '../components/APIService';
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 import RegSuccess from './RegSuccess';
+import AuthContext from '../context/AuthContext';
 
 const baseUrl = 'http://127.0.0.1:8000/api/application/'
 
 function ApplyForm() {
+  const {email} = useContext(AuthContext)
+  console.log(email.user_id)
   // const Swal = require('sweetalert2')
   const [ applicationData, setApplicationData] = useState({
     'name': '',
@@ -38,7 +41,7 @@ function ApplyForm() {
       [event.target.name]:event.target.value
     });
   }
-  console.log(applicationData);
+  
 
   
   //end
@@ -47,6 +50,7 @@ function ApplyForm() {
   const submitForm = (e) => {
     e.preventDefault()
     const applicationFormData = new FormData();
+    applicationFormData.append('user', email.user_id)
     applicationFormData.append('name', applicationData.name)
     applicationFormData.append('email', applicationData.email)
     applicationFormData.append('phone', applicationData.phone)
