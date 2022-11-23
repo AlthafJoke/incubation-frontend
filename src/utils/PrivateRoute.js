@@ -6,6 +6,7 @@ const PrivateRoutes = () => {
     console.log("private route is working")
     const {email} = useContext(AuthContext)
     const {authTokens} = useContext(AuthContext)
+    
 
     
     console.log(authTokens)
@@ -14,7 +15,8 @@ const PrivateRoutes = () => {
 
   return (
     // <Navigate to="/userhome" />
-    email? <Outlet/> : <Navigate to='/login'/>
+    email?  <Outlet/>  : <Navigate to='/login'/>
+    
     
   )
 }

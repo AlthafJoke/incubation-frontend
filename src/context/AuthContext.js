@@ -1,5 +1,7 @@
 import React, {createContext, useState, useEffect} from 'react'
+
 import jwt_decode from "jwt-decode";
+
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
@@ -63,7 +65,7 @@ export const AuthProvider = ({children}) => {
             
         }
         else{
-            alert('something went wrong here')
+            alert('please fill form')
         }
         
         
@@ -98,10 +100,7 @@ export const AuthProvider = ({children}) => {
     }
 
     const logoutUser = () => {
-        // setAuthTokens(null)
-        // setEmail(null)
-        // localStorage.removeItem('authToken')
-        // navigate('/login')
+       
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
               confirmButton: 'btn btn-success',

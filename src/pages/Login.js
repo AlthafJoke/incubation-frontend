@@ -10,6 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
+  console.log(email.admin)
 
   return (
     <div>
@@ -31,6 +32,7 @@ const Login = () => {
                   placeholder="Enter email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
                 <input
                   className="p-3 my-2 form-control "
@@ -39,6 +41,7 @@ const Login = () => {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required  
                 />
                 <button
                   className="bg-green-600 py-3 my-6 rounded btn-lg btn-block w-full"

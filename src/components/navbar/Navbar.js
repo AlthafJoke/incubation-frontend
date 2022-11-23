@@ -25,21 +25,13 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const  [token, setToken, removeToken] = useCookies(['mytoken'])
+  // const  [token, setToken, removeToken] = useCookies(['mytoken'])
   const navigate = useNavigate()
   const {logoutUser} = useContext(AuthContext)
+  const {email} = useContext(AuthContext)
+  console.log("hello")
 
-  // const logoutBtn = () => {
-  //   removeToken(['my-token'])
-  //   console.log('logout')
-    
-  // }
 
-  // useEffect(() => {
-  //   if(!token['my-token']) {
-  //     // navigate('/')
-  //   }
-  // }, [token])
   
   return (
     <Disclosure as="nav" className="bg-gray-800">

@@ -30,7 +30,7 @@ const Sidebar = () => {
             <CDBSidebarMenuItem icon="sticky-note" onClick={() => {navigate('/approved')}} >Approved Applicant</CDBSidebarMenuItem>
             
             <CDBSidebarMenuItem icon="chart-line" iconType="solid">
-              metrics
+              Rejected Applicants
             </CDBSidebarMenuItem>
           </CDBSidebarMenu>
         </CDBSidebarContent>

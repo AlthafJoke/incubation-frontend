@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
-import { Col, Container, Row } from "rsuite";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 import Dropdown from "react-bootstrap/Dropdown";
 import axios from "axios";
 import Navbar from "../components/navbar/Navbar";
@@ -8,6 +11,7 @@ import Sidebar from "../components/sidebar/Sidebar";
 
 const ApprovedApplicant = () => {
   const [approvedApplication, setApprovedApplication] = useState([]);
+  const [refetch,setRefetch]=useState(false)
 
   useEffect(() => {
     try {
@@ -22,7 +26,7 @@ const ApprovedApplicant = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [refetch]);
   
   let deleteApplication = async (id) => {
     console.log('delete is working')
@@ -39,6 +43,7 @@ const ApprovedApplicant = () => {
           console.log('success')
           if(response.status === 204){
             alert('successfully deleted')
+            setRefetch(true)
           }
           else{
             alert('something went wrong')
@@ -53,13 +58,16 @@ const ApprovedApplicant = () => {
   return (
     <div>
       <Navbar />
-      <Container >
+      <Container fluid>
+      
+
         <Row>
-          <Col  >
+          <Col  xs={'auto'} md={'auto'}>
             
             <Sidebar />
           </Col>
-          <Col  >
+          <Col  xs={'auto'} md={'8'}>
+          <h3 className="text-center mt-3">Approved Applicants</h3>
             
             <Table striped bordered hover>
               <thead>

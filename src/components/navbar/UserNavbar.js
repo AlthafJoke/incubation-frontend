@@ -11,14 +11,7 @@ import AuthContext from '../../context/AuthContext';
 
 
 
-const navigation = [
 
-
-  { name: 'Home', href: '/', current: true },
-  { name: 'Dashboard', href: '#', current: false },
-  // { name: 'Projects', href: '#', current: false },
-  // { name: 'Calendar', href: '#', current: false },
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -28,6 +21,15 @@ export default function UserNavbar() {
   const  [token, setToken, removeToken] = useCookies(['mytoken'])
   const navigate = useNavigate()
   const {logoutUser} = useContext(AuthContext)
+
+  const navigation = [
+
+
+    { name: 'Home', href: '/', current: true },
+    { name: 'Dashboard', href: '/userDashboard', current: false },
+    // { name: 'Projects', href: '#', current: false },
+    // { name: 'Calendar', href: '#', current: false },
+  ]
 
   
   

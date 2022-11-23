@@ -36,6 +36,7 @@ const UserRegister = () => {
         })
         // .then(() => console.log('form submited'))
         let info = await response.json()
+        
         console.log(info)
 
         
