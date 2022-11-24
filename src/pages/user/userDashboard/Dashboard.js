@@ -10,7 +10,7 @@ import UserNavbar from "../../../components/navbar/UserNavbar";
 
 const Dashboard = () => {
   const [approvedApplication, setApprovedApplication] = useState([]);
-  const [status, setStatus] = useState([])
+  const [status, setStatus] = useState([]);
   const { email } = useContext(AuthContext);
 
   useEffect(() => {
@@ -44,23 +44,15 @@ const Dashboard = () => {
   // }, []);
   // console.log('this is status :' , status)
 
-
-
-
-
-
-
   return (
     <div>
       <div>
         <UserNavbar />
         <Container>
           <Row>
-            <Col xs={"auto"} md={"auto"}>
-              
-            </Col>
+            <Col xs={"auto"} md={"auto"}></Col>
             <Col xs={"auto"} md={"8"}>
-            <h3 className="text-center mt-3">Your Application Status</h3>
+              <h3 className="text-center mt-3">Your Application Status</h3>
               <Table striped bordered hover>
                 <thead>
                   <tr>
@@ -68,7 +60,6 @@ const Dashboard = () => {
                     <th>Company Name</th>
                     <th>Status</th>
                     <th>Slot confirmed</th>
-                    
                   </tr>
                 </thead>
                 <tbody>
@@ -80,9 +71,31 @@ const Dashboard = () => {
                         <td>{application.companyname}</td>
 
                         <td>{application.status}</td>
-                        <td>{application.is_slot_allotted? <button className="btn btn-success">booking complete</button>: <button className="btn btn-secondary">waiting List</button>}</td>
-
-                        
+                        {application.is_slot_allotted &&
+                          application.is_approved && (
+                            <td>
+                              {" "}
+                              <button className="btn btn-success">
+                                booking complete
+                              </button>{" "}
+                            </td>
+                          )}
+                        {!application.is_slot_allotted &&
+                          application.is_approved && (
+                            <td>
+                              <button className="btn btn-secondary">
+                                waiting List
+                              </button>
+                            </td>
+                          )}
+                        {application.is_rejected && <td>Slot not available</td>}
+                        {!application.is_approved && !application.is_rejected && (
+                          <td>
+                            <button className="btn btn-secondary">
+                              waiting List
+                            </button>
+                          </td>
+                        )}
                       </tr>
                     );
                   })}
