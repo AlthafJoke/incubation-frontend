@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './userRegister.css'
+import Swal from 'sweetalert2'
 
 
 
@@ -12,6 +13,8 @@ const UserRegister = () => {
   const [phone , setPhone] = useState("")
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  
+  const navigate = useNavigate()
 
   let registerUser = async (e) => {
     e.preventDefault();
@@ -36,6 +39,18 @@ const UserRegister = () => {
         })
         // .then(() => console.log('form submited'))
         let info = await response.json()
+        if (info.first_name === firstName && info.email === email) {
+          Swal.fire({
+            title: 'success',
+            text: 'Registration Completed successfully',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          })
+          navigate('/login')
+
+          
+          
+        }
         
         console.log(info)
 
@@ -44,7 +59,12 @@ const UserRegister = () => {
     }
     catch (error) {
         console.log(error)
-        alert('something worng')
+        Swal.fire({
+          title: 'Error',
+          text: 'Something went wrong',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
     }
     
 

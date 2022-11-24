@@ -29,8 +29,11 @@ const Sidebar = () => {
 
             <CDBSidebarMenuItem icon="sticky-note" onClick={() => {navigate('/approved')}} >Approved Applicant</CDBSidebarMenuItem>
             
-            <CDBSidebarMenuItem icon="chart-line" iconType="solid">
-              Rejected Applicants
+            <CDBSidebarMenuItem icon="chart-line" iconType="solid" onClick={() => {navigate('/slot')}}>
+              Allocate Slote
+            </CDBSidebarMenuItem>
+            <CDBSidebarMenuItem icon="book" iconType="solid" onClick={() => {navigate('/booked-applicant')}}>
+              Booked Applicant
             </CDBSidebarMenuItem>
           </CDBSidebarMenu>
         </CDBSidebarContent>

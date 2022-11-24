@@ -1,0 +1,18 @@
+.slot-container {
+    display: flex;
+    flex-direction: row;
+}
+.slot {
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+    margin: 10px;
+    
+}
+.slot-approve {
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+
+}

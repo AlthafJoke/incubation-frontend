@@ -13,47 +13,31 @@ import UserRegister from "./pages/userRegister";
 
 import Dashboard from "./pages/userDashboard/Dashboard";
 import AdminPrivateRoute from "./utils/AdminPrivateRoute";
-
+import SlotBooking from "./pages/slot-booking/SlotBooking";
+import BookedApplicant from "./pages/booked-applicant/BookedApplicant";
 
 function App() {
-  
   return (
-    
     <Router>
       <AuthProvider>
-      
-      {/* <NavigationBar /> */}
-      <Routes>
-        
-        
-        {/* <Route path="/" element={<HeroSection />} /> */}
-        
-        <Route element={<PrivateRoutes />}>
-          <Route path="/" element={<HeroSection />} />
+        <Routes>
+          <Route element={<PrivateRoutes />}>
+            <Route path="/" element={<HeroSection />} />
 
+            <Route path="/userDashboard" element={<Dashboard />} />
+          </Route>
 
-          <Route index path="/userDashboard" element={<Dashboard/>  } />
-          
+          <Route element={<AdminPrivateRoute />}>
+            <Route path="/admin" element={<Home />} />
+            <Route path="/approved" element={<ApprovedApplicant />} />
+            <Route path="/slot" element={<SlotBooking />} />
+            <Route path="/booked-applicant" element={<BookedApplicant />} />
+          </Route>
 
-        </Route>
-        
-        <Route element={<AdminPrivateRoute/>}>
-          <Route index path="/admin" element={<Home />} />
-          <Route path="/approved" element={<ApprovedApplicant />} />
-
-
-        </Route>
-          
-        
-        <Route path="/login" element={<Login />} />
-        <Route path="/userRegister" element={<UserRegister/>} />
-        
-        {/* <Route path="/loginForm" element={<LoginForm />} /> */}
-      </Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/userRegister" element={<UserRegister />} />
+        </Routes>
       </AuthProvider>
-
-      
-      
     </Router>
   );
 }

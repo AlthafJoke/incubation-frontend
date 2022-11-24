@@ -10,6 +10,7 @@ import UserNavbar from "../../components/navbar/UserNavbar";
 
 const Dashboard = () => {
   const [approvedApplication, setApprovedApplication] = useState([]);
+  const [status, setStatus] = useState([])
   const { email } = useContext(AuthContext);
 
   useEffect(() => {
@@ -26,6 +27,29 @@ const Dashboard = () => {
       console.log(error);
     }
   }, []);
+
+  useEffect(() => {
+    try {
+      fetch('http://127.0.0.1:8000/api/crudApplication/', {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((resp) => resp.json())
+        .then((resp) => setStatus(resp));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+  console.log('this is status :' , status)
+
+
+
+
+
+
+
   return (
     <div>
       <div>
@@ -43,6 +67,7 @@ const Dashboard = () => {
                     <th>id</th>
                     <th>Company Name</th>
                     <th>Status</th>
+                    <th>Slot confirmed</th>
                     
                   </tr>
                 </thead>
@@ -55,6 +80,8 @@ const Dashboard = () => {
                         <td>{application.companyname}</td>
 
                         <td>{application.status}</td>
+                        <td>{application.is_slot_allotted? <button className="btn btn-success">booking complete</button>: <button className="btn btn-secondary">waiting List</button>}</td>
+
                         
                       </tr>
                     );

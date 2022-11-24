@@ -21,13 +21,14 @@ const Body = () => {
         if (response.status === 201) {
           console.log("success");
           setRefetch(true)
+
         }
+        
       })
 
-     
-   
   };
 
+  
   useEffect(() => {
     try {
       fetch("http://127.0.0.1:8000/api/application/", {
@@ -79,16 +80,8 @@ const Body = () => {
                       >
                         Approve
                       </Dropdown.Item>
-                      <Dropdown.Item
-                        onClick={() => console.log("reject clicked")}
-                      >
-                        Reject
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        onClick={() => console.log("Delete clicked")}
-                      >
-                        Delete
-                      </Dropdown.Item>
+                     
+                      
                     </Dropdown.Menu>
                   </Dropdown>
                 </td>
