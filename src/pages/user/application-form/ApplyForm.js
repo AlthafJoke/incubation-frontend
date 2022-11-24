@@ -6,12 +6,12 @@ import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { Loader, Placeholder } from "rsuite";
 
-import APIService from "../components/APIService";
+import APIService from "../../../components/APIService";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import RegSuccess from "./RegSuccess";
-import AuthContext from "../context/AuthContext";
+import RegSuccess from "../../RegSuccess";
+import AuthContext from "../../../context/AuthContext";
 
 const baseUrl = "http://127.0.0.1:8000/api/application/";
 

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../../components/navbar/Navbar'
+import Navbar from '../../../components/navbar/Navbar'
 
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Table from "react-bootstrap/Table";
-import Sidebar from '../../components/sidebar/Sidebar';
+import Sidebar from '../../../components/sidebar/Sidebar';
 import { styled } from "@mui/material/styles";
 
 const Item = styled(Paper)(({ theme }) => ({

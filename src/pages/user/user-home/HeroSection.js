@@ -2,8 +2,9 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import ApplyForm from './ApplyForm'
-import UserNavbar from '../components/navbar/UserNavbar'
+import ApplyForm from '../application-form/ApplyForm'
+import UserNavbar from '../../../components/navbar/UserNavbar'
+
 
 // const navigation = [
 //   { name: 'Product', href: '#' },

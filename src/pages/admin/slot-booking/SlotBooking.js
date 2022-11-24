@@ -3,11 +3,11 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import Navbar from "../../components/navbar/Navbar";
-import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../../components/navbar/Navbar";
+import Sidebar from "../../../components/sidebar/Sidebar";
 import Button from "@mui/material/Button";
 
-import "./slot.css";
+import "../../admin/slot-booking/slot.css";
 
 import Dropdown from "react-bootstrap/Dropdown";
 import Swal from 'sweetalert2'
@@ -100,7 +100,7 @@ const SlotBooking = () => {
           setShow(false);
           setSubmitSlot(true)
           console.log("success slot allocation complete");
-          window.location.reload(false);
+          
           // setRefetch(true)
           Swal.fire({
             title: 'success',
@@ -108,6 +108,11 @@ const SlotBooking = () => {
             icon: 'success',
             confirmButtonText: 'Ok'
           })
+          // if (submitSlot){
+          //   window.location.reload(true);
+          // }
+          
+
           
         }
       })
@@ -121,11 +126,14 @@ const SlotBooking = () => {
         icon: 'error',
         confirmButtonText: 'Ok'
       })
+      
 
     }
       
     
   }
+
+
 
   
 

@@ -1,6 +1,7 @@
 .slot-container {
     display: flex;
     flex-direction: row;
+    
 }
 .slot {
     width: 100px;

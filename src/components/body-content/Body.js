@@ -19,14 +19,36 @@ const Body = () => {
         body: JSON.stringify({status:'Approved'}),
       }).then(response => {
         if (response.status === 201) {
-          console.log("success");
+          console.log("deleted success");
           setRefetch(true)
 
+        }
+        else {
+          console.log('something went wrong')
         }
         
       })
 
   };
+  const handleReject = (id) => {
+    
+    fetch(`http://127.0.0.1:8000/api/StatusUpdate/${id}/ `, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({status:'Rejected', is_rejected:true}),
+    }).then(response => {
+      if (response.status === 201) {
+        console.log("success");
+        setRefetch(true)
+
+      }
+      console.log(response)
+      
+    })
+
+};
 
   
   useEffect(() => {
@@ -79,6 +101,13 @@ const Body = () => {
                         }}
                       >
                         Approve
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() => {
+                          handleReject(application.id);
+                        }}
+                      >
+                        Reject
                       </Dropdown.Item>
                      
                       

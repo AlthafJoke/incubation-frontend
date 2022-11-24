@@ -1,20 +1,20 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
-import Home from "./pages/Home";
+import Home from "./pages/admin/Home";
 import Login from "./pages/Login";
 
-import HeroSection from "./pages/HeroSection";
-import ApprovedApplicant from "./pages/ApprovedApplicant";
+import HeroSection from "./pages/user/user-home/HeroSection";
+import ApprovedApplicant from "./pages/user/application-form/ApprovedApplicant";
 
 import PrivateRoutes from "./utils/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
-import UserRegister from "./pages/userRegister";
+import UserRegister from "./pages/user-register/userRegister";
 
-import Dashboard from "./pages/userDashboard/Dashboard";
+import Dashboard from "./pages/user/userDashboard/Dashboard";
 import AdminPrivateRoute from "./utils/AdminPrivateRoute";
-import SlotBooking from "./pages/slot-booking/SlotBooking";
-import BookedApplicant from "./pages/booked-applicant/BookedApplicant";
+import SlotBooking from "./pages/admin/slot-booking/SlotBooking";
+import BookedApplicant from "./pages/admin/booked-applicant/BookedApplicant";
 
 function App() {
   return (

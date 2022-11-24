@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
-import Navbar from "../../components/navbar/Navbar";
-import AuthContext from "../../context/AuthContext";
+import Navbar from "../../../components/navbar/Navbar";
+import AuthContext from "../../../context/AuthContext";
 import Table from "react-bootstrap/Table";
-import Sidebar from "../../components/sidebar/Sidebar";
-import UserNavbar from "../../components/navbar/UserNavbar";
+import Sidebar from "../../../components/sidebar/Sidebar";
+import UserNavbar from "../../../components/navbar/UserNavbar";
 
 const Dashboard = () => {
   const [approvedApplication, setApprovedApplication] = useState([]);
@@ -28,21 +28,21 @@ const Dashboard = () => {
     }
   }, []);
 
-  useEffect(() => {
-    try {
-      fetch('http://127.0.0.1:8000/api/crudApplication/', {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-        },
-      })
-        .then((resp) => resp.json())
-        .then((resp) => setStatus(resp));
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-  console.log('this is status :' , status)
+  // useEffect(() => {
+  //   try {
+  //     fetch('http://127.0.0.1:8000/api/crudApplication/', {
+  //       method: "GET",
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //     })
+  //       .then((resp) => resp.json())
+  //       .then((resp) => setStatus(resp));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
+  // console.log('this is status :' , status)
 
 
 

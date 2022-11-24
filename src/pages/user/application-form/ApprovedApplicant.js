@@ -6,8 +6,8 @@ import Col from 'react-bootstrap/Col';
 
 import Dropdown from "react-bootstrap/Dropdown";
 import axios from "axios";
-import Navbar from "../components/navbar/Navbar";
-import Sidebar from "../components/sidebar/Sidebar";
+import Navbar from "../../../components/navbar/Navbar";
+import Sidebar from "../../../components/sidebar/Sidebar";
 
 const ApprovedApplicant = () => {
   const [approvedApplication, setApprovedApplication] = useState([]);
